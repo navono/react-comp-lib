@@ -8,7 +8,7 @@ import copy from 'rollup-plugin-copy';
 const packageJson = require('./package.json');
 
 export default {
-  preserveModules: true,
+  // preserveModules: true,
   input: 'src/index.ts',
   output: [
     {
@@ -28,6 +28,7 @@ export default {
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({
+      modules: true,
       sourceMap: true,
       extract: true,
       minimize: true,
