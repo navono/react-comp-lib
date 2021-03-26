@@ -2,3 +2,4 @@
 *.scss
 *.test.jsx
 *.test.tsx
+*.d.ts
