@@ -1,34 +1,38 @@
-require("colors");
-const fs = require("fs");
-const templates = require("./templates");
+/* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('colors');
+const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const shelljs = require('shelljs');
+const templates = require('./templates');
 
-const componentName = process.argv[2];
+const componentPath = process.argv[2];
+const componentName = process.argv[3];
 
-if (!componentName) {
-  console.error("Please supply a valid component name".red);
+if (!componentPath) {
+  console.error('Please supply a valid component name'.red);
   process.exit(1);
 }
 
-console.log("Creating Component Templates with name: " + componentName);
-
-const componentDirectory = `./src/${componentName}`;
+const componentDirectory = `./src/${componentPath}`;
+console.log(`Creating Component Templates with name: ${componentName} in ${componentDirectory}`);
 
 if (fs.existsSync(componentDirectory)) {
   console.error(`Component ${componentName} already exists.`.red);
   process.exit(1);
 }
 
-fs.mkdirSync(componentDirectory);
+shelljs.mkdir('-p', componentDirectory);
 
 const generatedTemplates = templates.map((template) => template(componentName));
 
 generatedTemplates.forEach((template) => {
   fs.writeFileSync(
     `${componentDirectory}/${componentName}${template.extension}`,
-    template.content
+    template.content,
   );
 });
 
 console.log(
-  "Successfully created component under: " + componentDirectory.green
+  `Successfully created component under: ${componentDirectory.green}`,
 );
