@@ -1,0 +1,4 @@
+*.css
+*.scss
+*.test.jsx
+*.test.tsx

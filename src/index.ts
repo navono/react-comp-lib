@@ -1,3 +1,4 @@
-import TestComponent from "./TestComponent";
+import TestComponent from './TestComponent';
 
+// eslint-disable-next-line import/prefer-default-export
 export { TestComponent };
