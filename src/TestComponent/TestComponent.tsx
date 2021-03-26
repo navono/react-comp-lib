@@ -1,6 +1,7 @@
 import React from 'react';
 import { TestComponentProps } from './TestComponent.types';
 import './TestComponent.scss';
+import Counter from '../Counter';
 
 const TestComponent: React.FC<TestComponentProps> = ({ theme }) => (
   <div
@@ -8,6 +9,7 @@ const TestComponent: React.FC<TestComponentProps> = ({ theme }) => (
     className={`test-component test-component-${theme}`}
   >
     <h1 className="heading">I'm the test component</h1>
+    <Counter />
     <h2>Made with love by Harvey</h2>
   </div>
 );

@@ -23,8 +23,15 @@ module.exports = {
     'import/extensions': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
     'no-use-before-define': 'off',
-    'react/prop-types': [0, { ignore: ['ignore'], customValidators: ['customValidator'] },],
+    'react/prop-types': [0, { ignore: ['ignore'], customValidators: ['customValidator'] }],
     'react/no-unescaped-entities': 0,
+    'import/no-extraneous-dependencies': [
+      1,
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+      }],
   },
   settings: {
     'import/resolver': {
