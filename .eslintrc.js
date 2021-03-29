@@ -20,9 +20,9 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'import/extensions': 'off',
+    'import/extensions': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
-    'no-use-before-define': 'off',
+    'no-use-before-define': 0,
     'react/prop-types': [0, { ignore: ['ignore'], customValidators: ['customValidator'] }],
     'react/no-unescaped-entities': 0,
     'import/no-extraneous-dependencies': [
@@ -32,6 +32,7 @@ module.exports = {
         optionalDependencies: false,
         peerDependencies: false,
       }],
+    'no-param-reassign': [2, { props: false }],
   },
   settings: {
     'import/resolver': {
