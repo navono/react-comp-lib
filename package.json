@@ -1,12 +1,12 @@
 {
   "name": "react-component-library",
   "version": "1.0.0",
-  "main": "lib/index.js",
-  "browser": "lib/index.js",
+  "main": "dist/index.js",
+  "browser": "dist/index.js",
   "files": [
-    "lib"
+    "dist"
   ],
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "yarn lint && rollup -c",
