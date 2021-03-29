@@ -16,11 +16,11 @@ export default {
       format: 'cjs',
       sourcemap: true,
     },
-    {
-      file: packageJson.module,
-      format: 'esm',
-      sourcemap: true,
-    },
+    // {
+    //   file: packageJson.module,
+    //   format: 'esm',
+    //   sourcemap: true,
+    // },
   ],
   plugins: [
     peerDepsExternal(),
@@ -32,6 +32,7 @@ export default {
       sourceMap: true,
       extract: true,
       minimize: true,
+      extensions: ['.css'],
     }),
     copy({
       targets: [
@@ -47,5 +48,9 @@ export default {
         },
       ],
     }),
+  ],
+  external: [
+    'react',
+    'react-dom',
   ],
 };
