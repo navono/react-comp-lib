@@ -2,8 +2,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { TestComponentProps } from './TestComponent.types';
 import './TestComponent.scss';
-import Counter from '../Counter';
 import { store } from '../store';
+
+import Counter from '../Counter';
+import '../Counter/Counter.css';
 
 const TestComponent: React.FC<TestComponentProps> = ({ theme }) => (
   <Provider store={store}>

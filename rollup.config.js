@@ -32,7 +32,7 @@ export default {
       sourceMap: true,
       extract: true,
       minimize: true,
-      extensions: ['.css'],
+      extensions: ['.css', '.less'],
     }),
     copy({
       targets: [

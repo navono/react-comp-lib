@@ -8,10 +8,27 @@ module.exports = {
     "@storybook/addon-links",
   ],
   webpackFinal: async (config) => {
+    // remove default css rule from storybook
+    config.module.rules = config.module.rules.filter((f) => f.test.toString() !== '/\\.css$/');
+
     config.module.rules.push({
       test: /\.scss$/,
       use: ["style-loader", "css-loader", "sass-loader"],
       include: path.resolve(__dirname, "../")
+    });
+
+    config.module.rules.push({
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            // Key config
+            modules: true,
+          },
+        },
+      ],
     });
 
     config.module.rules.push({
@@ -22,6 +39,9 @@ module.exports = {
       }
     });
     config.resolve.extensions.push(".ts", ".tsx");
+
+    // This is where we change the order of resolution of main fields
+    config.resolve.mainFields = ['src', 'module', 'main'];
 
     return config;
   },
